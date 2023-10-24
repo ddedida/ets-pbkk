@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
  */
-class CategoryFactory extends Factory
+class ConditionFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
-        $jenisOptions = ['makanan', 'minuman', 'alat mandi'];
+        $jenisOptions = ['baik', 'buruk', 'medium'];
         $currentIndex = session('jenis_index', 0);
         $jenisValue = $jenisOptions[$currentIndex];
         $currentIndex = ($currentIndex + 1) % count($jenisOptions);
@@ -27,7 +27,7 @@ class CategoryFactory extends Factory
         session(['jenis_index' => $currentIndex]);
 
         return [
-            'jenis' => $jenisValue,
+            'kondisi' => $jenisValue,
         ];
     }
 
